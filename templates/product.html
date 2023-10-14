@@ -1,0 +1,13 @@
+{% extends 'flatpages/default.html' %}
+
+
+{% block title %}
+    {{ product.header }}
+{% endblock title %}
+
+{% block content %}
+    <p>Header: {{ product.header }}</p>
+    <p>Text: {{ product.text }}</p>
+    <p>Category: {{ product.category }}</p>
+    <p>User: {{ product.user }}</p>
+{% endblock content %}

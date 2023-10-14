@@ -1,0 +1,27 @@
+{% extends 'flatpages/default.html' %}
+
+
+{% block title %}
+Объявления
+{% endblock title %}
+
+{% block content %}
+    <h1>Объявления</h1>
+    <hr>
+    {% if products %}
+        <table>
+            <tr>
+                <td>Header</td>
+                <td>Text</td>
+            </tr>
+            {% for product in products %}
+                <tr>
+                    <td><a href="{% url 'product_detail' product.pk %}">{{ product.header }}</a></td>
+                    <td>{{ product.text }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>Объявления отсутствуют</p>
+    {% endif %}
+{% endblock content %}
