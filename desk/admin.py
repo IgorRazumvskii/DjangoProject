@@ -1,16 +1,8 @@
-from ckeditor_uploader.widgets import CKEditorUploadingWidget
 from django import forms
+from .forms import ProductAdminForm
 from django.contrib import admin
 from .models import Product, Category, Response
 # Register your models here.
-
-
-class ProductAdminForm(forms.ModelForm):
-    text = forms.CharField(widget=CKEditorUploadingWidget())
-
-    class Meta:
-        model = Product
-        fields = '__all__'
 
 
 class ProductAdmin(admin.ModelAdmin):

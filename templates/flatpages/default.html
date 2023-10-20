@@ -5,7 +5,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Bare - Start Bootstrap Template</title>
 
         {% load static %}
         <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
@@ -29,16 +28,14 @@
                            </a>
                        </li>
                        <li class="nav-item">
-                           <a class="nav-link" href="/about/">About</a>
+                           <a class="nav-link" href="{% url 'product_create' %}">Создать объявление</a>
                        </li>
                        <li class="nav-item">
                            <a class="nav-link" href="/contacts/">Contact</a>
                        </li>
-                       {% if request.user.is_authenticated %}
                        <li class="nav-item">
-                           <a class="nav-link" href="{% url 'product_create' %}">Создать объявление</a>
+                           <a class="nav-link" href="accounts/login">Вход</a>
                        </li>
-                       {% endif %}
                    </ul>
                </div>
            </div>

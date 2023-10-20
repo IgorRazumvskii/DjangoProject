@@ -32,7 +32,7 @@ class Product(models.Model):
     user = models.ForeignKey(User, on_delete=models.PROTECT)
 
     def __str__(self):
-        pass
+        return f'{self.header}, {self.user}'
 
     def get_absolute_url(self):
         return reverse('product_list')  # ???

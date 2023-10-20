@@ -2,7 +2,7 @@ from django.shortcuts import render
 from .models import *
 from .forms import ProductForm
 
-from django.views.generic import ListView, CreateView, DeleteView, UpdateView, DetailView
+from django.views.generic import ListView, CreateView, DeleteView, UpdateView, DetailView, TemplateView
 from django.urls import reverse_lazy
 
 
@@ -16,6 +16,7 @@ class ProductList(ListView):
 
 #  просмотр объявления
 class ProductDetail(DetailView):
+    form_class = ProductForm
     model = Product
     template_name = 'product.html'
     context_object_name = 'product'
@@ -41,3 +42,18 @@ class ProductDelete(DeleteView):
     template_name = 'product_delete.html'
     context_object_name = 'product'
     success_url = reverse_lazy('product_list')
+
+
+class CabinetView(TemplateView):
+    template_name = 'cabinet.html'
+
+
+class ResponsesView(ListView):
+    model = Product
+    template_name = 'responses.html'
+    context_object_name = 'products'
+
+    def get_queryset(self):
+        return Product.objects.filter()
+
+

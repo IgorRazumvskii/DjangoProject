@@ -6,8 +6,8 @@
 {% endblock title %}
 
 {% block content %}
-    <p>Header: {{ product.header }}</p>
-    <p>Text: {{ product.text }}</p>
-    <p>Category: {{ product.category }}</p>
-    <p>User: {{ product.user }}</p>
+    {{ product.header|safe }}
+    {{ product.text|safe }}
+    {{ product.category|safe }}
+    {{ product.user|safe }}
 {% endblock content %}
