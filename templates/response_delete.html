@@ -1,0 +1,16 @@
+{% extends 'flatpages/default.html' %}
+
+{% block title %}
+Удаление отклика
+{% endblock title %}
+
+
+{% block content %}
+   <form method="post">
+       {% csrf_token %}
+       <p>
+           Точно ли вы хотите удалить отклик: {{response.product.header}}?
+       </p>
+       <input type="submit" value="Да">
+   </form>
+{% endblock content %}

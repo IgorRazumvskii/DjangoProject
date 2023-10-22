@@ -1,24 +1,27 @@
 {% extends 'flatpages/default.html' %}
 
-
 {% block title %}
-Объявления
+    <title>Объявления</title>
 {% endblock title %}
 
 {% block content %}
-    <h1>Объявления</h1>
+    <h1>Отклики</h1>
+    <form action="" method="get">
+        {{ filterset.form.as_p }}
+       <input type="submit" value="Найти" />
+    </form>
     <hr>
-    {% if products %}
+    {% if responses %}
         <table>
             <tr>
                 <td>Header</td>
                 <td>Text</td>
             </tr>
-            {% for product in products %}
+            {% for response in responses %}
                 <tr>
-                    <td><a href="{% url 'product_detail' product.pk %}">{{ product.header }}</a></td>
-                    <td>{{ product.text }}</td>
-                    <td><button><a href="/">Запрос</a></button></td>
+                    <td>{{ response.product.header }}</td>
+                    <td><button><a href="{% url 'response_accept' response.pk %}">принять</a></button></td>
+                    <td><button><a href="{% url 'response_delete' response.pk %}">удалить</a></button></td>
                 </tr>
             {% endfor %}
         </table>

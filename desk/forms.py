@@ -1,5 +1,5 @@
 from django import forms
-from .models import Product
+from .models import Product, Response
 from ckeditor_uploader.widgets import CKEditorUploadingWidget
 from allauth.account.forms import SignupForm
 from django.contrib.auth.models import Group
@@ -22,8 +22,16 @@ class ProductForm(forms.ModelForm):
         fields = [
             'header',
             'text',
-            'category',
-            'user'
+            'category'
+        ]
+
+
+class ResponseForm(forms.ModelForm):
+
+    class Meta:
+        model = Response
+        fields = [
+            'text'
         ]
 
 

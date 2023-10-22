@@ -40,5 +40,11 @@ class Product(models.Model):
 
 class Response(models.Model):
     request = models.BooleanField(default=False)
+    text = models.CharField(max_length=20, blank=True, null=True)
     product = models.ForeignKey(Product, on_delete=models.PROTECT, related_name='responses')
     user = models.ForeignKey(User, on_delete=models.PROTECT)
+
+
+class News(models.Model):
+    header = models.CharField(max_length=20)
+    text = models.TextField()

@@ -17,8 +17,8 @@
             {% for product in products %}
                 <tr>
                     <td><a href="{% url 'product_detail' product.pk %}">{{ product.header }}</a></td>
-                    <td>{{ product.text }}</td>
-                    <td><button><a href="/">Запрос</a></button></td>
+                    <td>{{ product.text|safe}}</td>
+                    <td><button><a href="{% url 'response' product.pk %}">Запрос</a></button></td>
                 </tr>
             {% endfor %}
         </table>

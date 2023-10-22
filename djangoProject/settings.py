@@ -39,14 +39,16 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'desk',
-
     'ckeditor',
     'ckeditor_uploader',
+
+    'desk.apps.DeskConfig',
 
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+
+    'django_filters',
 ]
 
 LOGIN_URL = '/accounts/login/'

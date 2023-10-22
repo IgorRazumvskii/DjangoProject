@@ -1,0 +1,14 @@
+{% extends 'flatpages/default.html' %}
+
+{% block title %}
+Response
+{% endblock title %}
+
+{% block content %}
+   <form method="post">
+       {% csrf_token %}
+       {{ form.media }}
+       {{form.as_p}}
+       <input type="submit" value="Применить">
+   </form>
+{% endblock content %}
